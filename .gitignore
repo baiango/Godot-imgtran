@@ -1,0 +1,8 @@
+# Godot 4+ specific ignores
+.godot/
+godot-cpp-4.2
+# Not the 3D model obj file.
+cpp/*.obj
+project/bin/*.exp
+project/bin/*.lib
+.sconsign.dblite

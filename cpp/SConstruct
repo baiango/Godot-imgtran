@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+import os
+import sys
+
+env = SConscript("../godot-cpp-4.2/SConstruct")
+
+env.Append(CPPPATH=["/"])
+sources = Glob("*.cpp")
+
+# Keep the file name in lowercase to prevent case-sensitive file system bugs
+export_path = "../project/bin/imgtran{}{}"
+library = env.SharedLibrary(
+	export_path.format(env["suffix"], env["SHLIBSUFFIX"]),
+	source=sources,
+)
+
+Default(library)
