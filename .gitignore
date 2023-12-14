@@ -6,3 +6,5 @@ cpp/*.obj
 project/bin/*.exp
 project/bin/*.lib
 .sconsign.dblite
+fort/*.obj
+project/bin/~*.dll

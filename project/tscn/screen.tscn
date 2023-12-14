@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu3xph7lt5a8f"]
 
 [ext_resource type="Texture2D" uid="uid://dilhpqkg722k3" path="res://icon.svg" id="1_r7lpa"]
-[ext_resource type="Script" path="res://gd/libtest.gd" id="2_hofw0"]
+[ext_resource type="PackedScene" uid="uid://cux2v5bjxmtyk" path="res://tscn/libtest.tscn" id="2_ulvmm"]
 
 [node name="Screen" type="Control"]
 layout_mode = 3
@@ -16,5 +16,4 @@ metadata/_edit_lock_ = true
 position = Vector2(353, 172)
 texture = ExtResource("1_r7lpa")
 
-[node name="libtest" type="Node" parent="."]
-script = ExtResource("2_hofw0")
+[node name="libtest" parent="." instance=ExtResource("2_ulvmm")]

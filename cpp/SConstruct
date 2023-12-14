@@ -5,13 +5,18 @@ import sys
 env = SConscript("../godot-cpp-4.2/SConstruct")
 
 env.Append(CPPPATH=["/"])
-sources = Glob("*.cpp")
+cpp_sources = Glob("*.cpp")
+
+# Fortran
+fortran_path = "../fort/"
+SConscript(fortran_path + "SConstruct")
+fortran_obj = env.Object(Glob(fortran_path + "*.f90"))
 
 # Keep the file name in lowercase to prevent case-sensitive file system bugs
 export_path = "../project/bin/imgtran{}{}"
 library = env.SharedLibrary(
 	export_path.format(env["suffix"], env["SHLIBSUFFIX"]),
-	source=sources,
+	source=cpp_sources + fortran_obj,
 )
 
 Default(library)

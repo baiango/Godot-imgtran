@@ -1,21 +1,7 @@
 #pragma once
-// Include headers in hpp files
+// Include headers in hpp files before your classes to use it
 #include <godot_cpp/classes/object.hpp>
 #include <godot_cpp/core/class_db.hpp>
-
-
-using namespace godot;
-
-class Imgtran : public Object {
-private:
-	// Godot class constructor
-	GDCLASS(Imgtran, Object);
-
-protected:
-	// Godot binding function
-	static void _bind_methods();
-
-public:
-	// Your functions
-	int add(int a, int b);
-};
+// Import your classes here
+#include "fort_ffi.hpp"
+#include "imgtran.hpp"

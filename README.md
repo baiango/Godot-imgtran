@@ -5,7 +5,27 @@ This project is for rapid prototyping the image transform coding efficiency, so 
 
 # Dependency on Windows
 ## Compiler
+### GFortran
+Get the [latest](https://winlibs.com/#download-release) one with **POSIX threads, UCRT, Win64, and without LLVM/Clang/LLD/LLDB**.  
+Copy the `mingw64` folder from the 7z/zip to `C:\Program Files`  
+Search `Edit the system environment variables`  
+Click "Environment variables"->Double click "Path"->"New"  
+Put `C:\Program Files\mingw64\bin` in the PATH environment variable.  
+Save and exit it.
+
+Check your installation with this command.
+```batch
+where gfortran gcc
+```
+
+The output should show `gfortran.exe` and `gcc.exe`
+```
+C:\Program Files\mingw64\bin\gfortran.exe
+C:\Program Files\mingw64\bin\gcc.exe
+```
+### GCC
 **Visual Studio Community is not required as we are using GCC. If you have it, Scons will build it with MSVC.**  
+**You can skip GCC if you installed it.**  
 [Godot Windows compiling documentation](https://docs.godotengine.org/en/latest/contributing/development/compiling/compiling_for_windows.html)  
 
 You will need Scons, Python, and GCC from Scoop.  
@@ -17,13 +37,16 @@ scoop install gcc python scons make mingw
 [Get godot-cpp 4.2](https://github.com/godotengine/godot-cpp/tree/4.2)  
 Put the `godot-cpp-4.2` in the root folder.  
 Your file tree should look like this as the file `SConstruct` is written this way.
+```batch
+tree
+```
 ```
 Godot-imgtran
 ├───cpp
 ├───godot-cpp-4.2
 └───project
 ```
-### SConstruct
+### [SConstruct](cpp/SConstruct)
 ```python
 #!/usr/bin/env python
 import os
@@ -52,7 +75,7 @@ scons
 ## Running the project
 Import the project in Godot and make sure the **entry_symbol** name is the same as in your C++ `register_types.cpp`.
 
-### imgtran.gdextension
+### [imgtran.gdextension](project/imgtran.gdextension)
 ```toml
 [configuration]
 
@@ -65,7 +88,7 @@ windows.debug.x86_64 = "res://bin/imgtran.windows.template_debug.x86_64.dll"
 windows.release.x86_64 = "res://bin/imgtran.windows.release.x86_64.dll"
 ```
 
-### register_types.cpp
+### [register_types.cpp](cpp/register_types.cpp)
 ```c++
 // Unmangle the function name in the symbol by compile as C
 extern "C" {

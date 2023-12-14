@@ -1,0 +1,29 @@
+import os
+from SCons.Script import Builder, Environment, Dir
+
+# Import the Ifx tool/module
+import SCons.Tool.ifort
+
+# Create a basic environment
+env = Environment()
+
+# Define a custom builder for Fortran source files with a .f90 extension
+fortran_builder = Builder(
+	action="$IFORT -c $SOURCE -o $TARGET",
+	suffix=".obj",  # Output file suffix
+	src_suffix=".f90",  # Source file suffix
+)
+
+env.Append(BUILDERS={'FortranCompile': fortran_builder})
+
+# Get Fortran source
+fortran_file = Glob("*.f90")
+
+# Define the IFORT variable to specify the Intel Fortran compiler
+env['IFORT'] = 'ifx'
+
+# Optionally, set compiler flags, libraries, include paths, etc., as needed
+env.Append(IFORTFLAGS=['/O2', '/nologo'])
+
+# Compile the Fortran source file
+env.FortranCompile(source=fortran_file)

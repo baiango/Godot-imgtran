@@ -6,5 +6,5 @@
 #include "import.hpp"
 
 
-void initialize_wavelib_type();
-void uninitialize_wavelib_type();
+void initialize_classes();
+void uninitialize_classes();
