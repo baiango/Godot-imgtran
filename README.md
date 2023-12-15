@@ -5,24 +5,6 @@ This project is for rapid prototyping the image transform coding efficiency, so 
 
 # Dependency on Windows
 ## Compiler
-### GFortran
-Get the [latest](https://winlibs.com/#download-release) one with **POSIX threads, UCRT, Win64, and without LLVM/Clang/LLD/LLDB**.  
-Copy the `mingw64` folder from the 7z/zip to `C:\Program Files`  
-Search `Edit the system environment variables`  
-Click "Environment variables"->Double click "Path"->"New"  
-Put `C:\Program Files\mingw64\bin` in the PATH environment variable.  
-Save and exit it.
-
-Check your installation with this command.
-```batch
-where gfortran gcc
-```
-
-The output should show `gfortran.exe` and `gcc.exe`
-```
-C:\Program Files\mingw64\bin\gfortran.exe
-C:\Program Files\mingw64\bin\gcc.exe
-```
 ### GCC
 **Visual Studio Community is not required as we are using GCC. If you have it, Scons will build it with MSVC.**  
 **You can skip GCC if you installed it.**  
@@ -32,6 +14,16 @@ You will need Scons, Python, and GCC from Scoop.
 [Get scoop](https://scoop.sh/)
 ```batch
 scoop install gcc python scons make mingw
+```
+
+Check your installation with this command.
+```batch
+where gcc
+```
+
+The output should show `gcc.exe`
+```batch
+C:\Users\%username%\scoop\apps\gcc\current\bin\gcc.exe
 ```
 ## C++ bindings
 [Get godot-cpp 4.2](https://github.com/godotengine/godot-cpp/tree/4.2)  

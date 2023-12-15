@@ -15,6 +15,7 @@ protected:
 public:
 	// Your functions
 	int add(int a, int b);
-	double addf(double a, double b);
 	double square(double x);
+	PackedFloat32Array dct_2d(PackedFloat32Array gray_image);
+	PackedFloat32Array idct_2d(const PackedFloat32Array& dct_coefficients);
 };
