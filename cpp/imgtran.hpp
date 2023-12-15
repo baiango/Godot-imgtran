@@ -1,7 +1,6 @@
 #pragma once
-
-
 using namespace godot;
+
 
 class Imgtran : public Object {
 private:
@@ -16,6 +15,6 @@ public:
 	// Your functions
 	int add(int a, int b);
 	double square(double x);
-	PackedFloat32Array dct_2d(PackedFloat32Array gray_image);
-	PackedFloat32Array idct_2d(const PackedFloat32Array& dct_coefficients);
+	PackedFloat32Array dct_2d(const PackedFloat32Array &gray_image);
+	PackedFloat32Array idct_2d(const PackedFloat32Array &dct_coefficients);
 };

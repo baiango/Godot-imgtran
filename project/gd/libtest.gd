@@ -9,7 +9,9 @@ func _ready():
 	print("Imgtran says: 2.1 ** 2 = ", test_2)
 
 	var test_3 := tran.dct_2d([1.2, 3.4, 5.6, 7.8])
-	print(test_3)
+	print("Imgtran says: dct_2d([1.2, 3.4, 5.6, 7.8]) = ", test_3)
 
 	var test_4 := tran.idct_2d(test_3)
-	print(test_4)
+	print("Imgtran says: idct_2d({test_3}) = ".format({"test_3": test_3}), test_4)
+
+	#tran.free()
